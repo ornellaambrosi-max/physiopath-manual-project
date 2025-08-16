@@ -1,8 +1,21 @@
-{
+﻿{
+  "name": "physiopath",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.26.2",
+    "react-scripts": "5.0.1",
+    "lucide-react": "latest"
+  },
+  "devDependencies": {
+    "@craco/craco": "latest"
   }
 }
