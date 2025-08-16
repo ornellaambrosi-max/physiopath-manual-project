@@ -12,3 +12,4 @@ Thumbs.db
 *.rar
 *.tar
 *.gz
+"node_modules/"
