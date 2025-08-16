@@ -1,0 +1,201 @@
+{
+  "name": "Exercise",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Exercise name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed exercise description"
+    },
+    "instructions": {
+      "type": "string",
+      "description": "Step-by-step instructions"
+    },
+    "provider_notes": {
+      "type": "string",
+      "description": "Custom notes from assigned provider"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "Primary video tutorial URL (MP4, YouTube, Vimeo)"
+    },
+    "video_urls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "duration_seconds": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "Multiple video tutorials"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "Exercise demonstration images"
+    },
+    "default_sets": {
+      "type": "number",
+      "description": "Default number of sets"
+    },
+    "default_reps": {
+      "type": "string",
+      "description": "Default repetitions (e.g., '10', '30 seconds', '10 each side')"
+    },
+    "default_rest_duration": {
+      "type": "number",
+      "description": "Default rest between sets in seconds"
+    },
+    "time_under_tension": {
+      "type": "string",
+      "description": "Time under tension instructions"
+    },
+    "range_of_motion": {
+      "type": "object",
+      "properties": {
+        "min_degrees": {
+          "type": "number"
+        },
+        "max_degrees": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "description": "Range of motion specifications"
+    },
+    "equipment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Required equipment"
+    },
+    "body_regions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "neck",
+          "upper_back",
+          "lower_back",
+          "shoulder",
+          "elbow",
+          "wrist",
+          "hip",
+          "knee",
+          "ankle",
+          "core",
+          "full_body"
+        ]
+      },
+      "description": "Targeted body regions"
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "low_back_pain",
+          "neck_pain",
+          "shoulder_impingement",
+          "knee_osteoarthritis",
+          "post_surgery",
+          "general_strengthening",
+          "balance_training"
+        ]
+      },
+      "description": "Applicable conditions/pathologies"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "pain_relief",
+          "mobility",
+          "stability",
+          "strengthening",
+          "endurance",
+          "balance",
+          "coordination",
+          "flexibility"
+        ]
+      },
+      "description": "Exercise categories and benefits"
+    },
+    "difficulty_level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "description": "Exercise difficulty"
+    },
+    "contraindications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "When not to perform this exercise"
+    },
+    "modifications": {
+      "type": "object",
+      "properties": {
+        "easier": {
+          "type": "string"
+        },
+        "harder": {
+          "type": "string"
+        }
+      },
+      "description": "Exercise modifications for different abilities"
+    },
+    "created_by_provider_id": {
+      "type": "string",
+      "description": "Provider who created this exercise"
+    },
+    "is_approved": {
+      "type": "boolean",
+      "default": false,
+      "description": "Admin approval status"
+    },
+    "usage_count": {
+      "type": "number",
+      "default": 0,
+      "description": "How many times this exercise has been prescribed"
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "body_regions",
+    "tags"
+  ]
+}

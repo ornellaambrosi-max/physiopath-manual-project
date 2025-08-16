@@ -1,0 +1,60 @@
+{
+  "name": "PatientResourceEngagement",
+  "type": "object",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Reference to Patient entity"
+    },
+    "resource_id": {
+      "type": "string",
+      "description": "Reference to EducationResource entity"
+    },
+    "view_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of times this patient has viewed this resource"
+    },
+    "last_viewed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the patient last accessed this resource"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the patient has completed this resource (for courses/modules)"
+    },
+    "liked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the patient has liked/favorited this resource"
+    },
+    "progress_percentage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 0,
+      "description": "Completion percentage for interactive modules/courses"
+    },
+    "time_spent_minutes": {
+      "type": "number",
+      "default": 0,
+      "description": "Total time spent engaging with this resource"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Patient's personal notes about this resource"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Patient's rating of the resource (1-5 stars)"
+    }
+  },
+  "required": [
+    "patient_id",
+    "resource_id"
+  ]
+}

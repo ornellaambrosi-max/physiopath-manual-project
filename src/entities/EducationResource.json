@@ -1,0 +1,157 @@
+{
+  "name": "EducationResource",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the educational resource"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "article",
+        "video",
+        "animation",
+        "infographic",
+        "faq",
+        "course",
+        "module"
+      ],
+      "description": "Format of the educational content"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief summary of the resource content"
+    },
+    "content_url": {
+      "type": "string",
+      "description": "URL to the actual content (YouTube, PDF, internal route)"
+    },
+    "body_regions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "lower_back",
+          "upper_back",
+          "neck",
+          "shoulder",
+          "hip",
+          "knee",
+          "ankle",
+          "general"
+        ]
+      },
+      "description": "Body regions this content applies to"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "pain_science",
+          "ACT_CFT",
+          "postoperative_care",
+          "self_management",
+          "exercise_fundamentals",
+          "postural_correction",
+          "anatomy",
+          "sleep_hygiene",
+          "nutrition",
+          "stress_management"
+        ]
+      },
+      "description": "Educational topics covered"
+    },
+    "difficulty_level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "description": "Complexity level of the content"
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": [
+        "general_advice",
+        "evidence_based_summary",
+        "clinical_guideline",
+        "research_paper"
+      ],
+      "description": "Scientific rigor of the content"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Flexible search keywords"
+    },
+    "related_diagnosis": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "chronic_LBP",
+          "acute_back_pain",
+          "neck_pain",
+          "tension_headaches",
+          "shoulder_injury",
+          "frozen_shoulder",
+          "chronic_pain",
+          "fibromyalgia",
+          "post_operative",
+          "sciatica",
+          "osteoarthritis"
+        ]
+      },
+      "description": "Medical conditions this content relates to"
+    },
+    "curated_by_clinician_id": {
+      "type": "string",
+      "description": "ID of the clinician who uploaded/curated this content"
+    },
+    "evidence_source_links": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs to scientific papers or clinical guidelines"
+    },
+    "course_modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "content_url": {
+            "type": "string"
+          },
+          "duration_minutes": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "For course-type resources, defines the module structure"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether to highlight this resource prominently"
+    },
+    "view_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Total number of views across all patients"
+    }
+  },
+  "required": [
+    "title",
+    "type",
+    "description"
+  ]
+}

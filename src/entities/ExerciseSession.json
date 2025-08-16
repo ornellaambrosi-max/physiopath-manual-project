@@ -1,0 +1,190 @@
+{
+  "name": "ExerciseSession",
+  "type": "object",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Reference to Patient entity"
+    },
+    "program_id": {
+      "type": "string",
+      "description": "Reference to ExerciseProgram entity"
+    },
+    "session_template_id": {
+      "type": "string",
+      "description": "Reference to session template if used"
+    },
+    "session_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the session"
+    },
+    "week_number": {
+      "type": "number",
+      "description": "Program week number"
+    },
+    "session_number": {
+      "type": "number",
+      "description": "Session number within the week"
+    },
+    "title": {
+      "type": "string",
+      "description": "Session title (e.g., 'Lower Back Strengthening - Week 3 Day 2')"
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "exercise_id": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "number"
+          },
+          "sets": {
+            "type": "number"
+          },
+          "reps": {
+            "type": "string"
+          },
+          "rest_duration": {
+            "type": "number"
+          },
+          "provider_notes": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean",
+            "default": false
+          },
+          "skipped": {
+            "type": "boolean",
+            "default": false
+          },
+          "skip_reason": {
+            "type": "string"
+          },
+          "actual_sets": {
+            "type": "number"
+          },
+          "actual_reps": {
+            "type": "string"
+          },
+          "pain_before": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "pain_after": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "perceived_exertion": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "exercise_notes": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Exercises in this session"
+    },
+    "estimated_duration_minutes": {
+      "type": "number",
+      "description": "Estimated session duration"
+    },
+    "actual_duration_minutes": {
+      "type": "number",
+      "description": "Actual session duration"
+    },
+    "music_playlist": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string",
+          "enum": [
+            "spotify",
+            "youtube",
+            "uploaded"
+          ]
+        }
+      },
+      "description": "Session music/playlist"
+    },
+    "motivational_phrases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Motivational messages to show during session"
+    },
+    "pre_session_reminders": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Reminders before starting session"
+    },
+    "session_status": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "default": "scheduled",
+      "description": "Current session status"
+    },
+    "overall_pain_before": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Overall pain level before session"
+    },
+    "overall_pain_after": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Overall pain level after session"
+    },
+    "session_feedback": {
+      "type": "string",
+      "description": "Patient feedback about the session"
+    },
+    "adherence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percentage of exercises completed as prescribed"
+    },
+    "provider_id": {
+      "type": "string",
+      "description": "Assigned provider/clinician"
+    },
+    "needs_provider_review": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag if session needs clinician attention"
+    },
+    "provider_review_notes": {
+      "type": "string",
+      "description": "Notes from provider review"
+    }
+  },
+  "required": [
+    "patient_id",
+    "session_date",
+    "exercises"
+  ]
+}

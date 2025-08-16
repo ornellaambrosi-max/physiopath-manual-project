@@ -1,0 +1,108 @@
+{
+  "name": "Patient",
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "description": "Patient's first name"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Patient's last name"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Patient's email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Patient's phone number"
+    },
+    "date_of_birth": {
+      "type": "string",
+      "format": "date",
+      "description": "Patient's date of birth"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "other",
+        "prefer_not_to_say"
+      ],
+      "description": "Patient's gender"
+    },
+    "address": {
+      "type": "string",
+      "description": "Patient's full address"
+    },
+    "city": {
+      "type": "string",
+      "description": "Patient's city"
+    },
+    "region": {
+      "type": "string",
+      "description": "Patient's region in Italy"
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "Patient's postal code"
+    },
+    "emergency_contact_name": {
+      "type": "string",
+      "description": "Emergency contact name"
+    },
+    "emergency_contact_phone": {
+      "type": "string",
+      "description": "Emergency contact phone"
+    },
+    "medical_history": {
+      "type": "string",
+      "description": "Patient's medical history"
+    },
+    "current_medications": {
+      "type": "string",
+      "description": "Current medications"
+    },
+    "allergies": {
+      "type": "string",
+      "description": "Known allergies"
+    },
+    "screening_completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether initial screening is completed"
+    },
+    "care_pathway": {
+      "type": "string",
+      "enum": [
+        "screening",
+        "referral",
+        "personalized_care",
+        "standardized_program",
+        "completed"
+      ],
+      "default": "screening",
+      "description": "Current care pathway stage"
+    },
+    "subscription_status": {
+      "type": "string",
+      "enum": [
+        "free",
+        "basic",
+        "premium",
+        "paused",
+        "cancelled"
+      ],
+      "default": "free",
+      "description": "Subscription status"
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name",
+    "email"
+  ]
+}

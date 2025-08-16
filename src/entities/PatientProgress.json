@@ -1,0 +1,185 @@
+{
+  "name": "PatientProgress",
+  "type": "object",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Reference to Patient entity"
+    },
+    "program_id": {
+      "type": "string",
+      "description": "Reference to ExerciseProgram entity"
+    },
+    "session_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the session"
+    },
+    "week_number": {
+      "type": "number",
+      "description": "Program week number"
+    },
+    "session_number": {
+      "type": "number",
+      "description": "Session number within the week"
+    },
+    "exercises_completed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "exercise_id": {
+            "type": "string"
+          },
+          "exercise_name": {
+            "type": "string"
+          },
+          "sets_completed": {
+            "type": "number"
+          },
+          "reps_completed": {
+            "type": "string"
+          },
+          "actual_duration_seconds": {
+            "type": "number"
+          },
+          "difficulty_rating": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "pain_level_before": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "pain_level_after": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "tension_level": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "effort_level": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "skipped_reason": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "video_recording_url": {
+            "type": "string",
+            "description": "URL to patient's exercise recording for clinician review"
+          }
+        }
+      }
+    },
+    "overall_pain_level": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Overall pain level for the session"
+    },
+    "energy_level": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Energy level during session"
+    },
+    "session_duration_minutes": {
+      "type": "number",
+      "description": "Actual session duration in minutes"
+    },
+    "session_notes": {
+      "type": "string",
+      "description": "Patient notes about the session"
+    },
+    "adherence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percentage of exercises completed as prescribed"
+    },
+    "psfs_current_scores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "activity": {
+            "type": "string"
+          },
+          "current_rating": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          }
+        }
+      },
+      "description": "Current PSFS activity ratings"
+    },
+    "mood_assessment": {
+      "type": "object",
+      "properties": {
+        "anxiety_level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "motivation_level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "confidence_level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        }
+      },
+      "description": "Brief mood and confidence assessment"
+    },
+    "wearable_data": {
+      "type": "object",
+      "properties": {
+        "steps": {
+          "type": "number"
+        },
+        "average_heart_rate": {
+          "type": "number"
+        },
+        "sleep_hours": {
+          "type": "number"
+        },
+        "active_minutes": {
+          "type": "number"
+        }
+      },
+      "description": "Wearable device data for the day"
+    },
+    "needs_clinician_review": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag for clinician attention"
+    },
+    "clinician_notes": {
+      "type": "string",
+      "description": "Notes from clinician review"
+    }
+  },
+  "required": [
+    "patient_id",
+    "program_id",
+    "session_date",
+    "week_number"
+  ]
+}

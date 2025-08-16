@@ -1,0 +1,217 @@
+{
+  "name": "ExerciseProgram",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Program title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Program description"
+    },
+    "program_type": {
+      "type": "string",
+      "enum": [
+        "personalized",
+        "standardized"
+      ],
+      "description": "Whether this is a custom or standard program"
+    },
+    "condition_type": {
+      "type": "string",
+      "enum": [
+        "acute_back_pain",
+        "chronic_back_pain",
+        "neck_pain",
+        "shoulder_injury",
+        "knee_injury",
+        "hip_injury",
+        "post_surgery_recovery",
+        "sports_injury",
+        "postural_correction",
+        "general_fitness"
+      ],
+      "description": "Target condition"
+    },
+    "difficulty_level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "description": "Program difficulty"
+    },
+    "duration_weeks": {
+      "type": "number",
+      "description": "Program duration in weeks"
+    },
+    "sessions_per_week": {
+      "type": "number",
+      "description": "Recommended sessions per week"
+    },
+    "equipment_needed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Required equipment"
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "video_url": {
+            "type": "string"
+          },
+          "thumbnail_url": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "strength",
+              "flexibility",
+              "mobility",
+              "endurance",
+              "balance",
+              "coordination"
+            ]
+          },
+          "target_muscles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "initial_sets": {
+            "type": "number"
+          },
+          "initial_reps": {
+            "type": "string"
+          },
+          "hold_time_seconds": {
+            "type": "number"
+          },
+          "rest_time_seconds": {
+            "type": "number"
+          },
+          "progression_rules": {
+            "type": "object",
+            "properties": {
+              "increase_sets_after_days": {
+                "type": "number"
+              },
+              "increase_reps_after_days": {
+                "type": "number"
+              },
+              "max_sets": {
+                "type": "number"
+              },
+              "max_reps": {
+                "type": "string"
+              },
+              "progression_criteria": {
+                "type": "string"
+              }
+            }
+          },
+          "difficulty_modifications": {
+            "type": "object",
+            "properties": {
+              "easier": {
+                "type": "string"
+              },
+              "harder": {
+                "type": "string"
+              }
+            }
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "precautions": {
+            "type": "string"
+          },
+          "contraindications": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "description": "List of exercises in the program"
+    },
+    "week_structure": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "week_number": {
+            "type": "number"
+          },
+          "focus": {
+            "type": "string"
+          },
+          "exercise_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "session_duration_minutes": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "Weekly progression structure"
+    },
+    "educational_content": {
+      "type": "string",
+      "description": "Educational information about the condition"
+    },
+    "price": {
+      "type": "number",
+      "description": "Program price in euros"
+    },
+    "is_personalized": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a personalized program"
+    },
+    "evidence_base": {
+      "type": "string",
+      "description": "Scientific evidence supporting the program"
+    },
+    "success_rate": {
+      "type": "number",
+      "description": "Program success rate percentage"
+    },
+    "created_by_clinician_id": {
+      "type": "string",
+      "description": "ID of clinician who created this program"
+    },
+    "based_on_screening_id": {
+      "type": "string",
+      "description": "Reference to ScreeningAssessment if personalized"
+    }
+  },
+  "required": [
+    "title",
+    "condition_type",
+    "difficulty_level",
+    "duration_weeks"
+  ]
+}

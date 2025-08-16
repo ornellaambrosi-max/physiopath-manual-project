@@ -1,0 +1,14 @@
+﻿node_modules/
+build/
+dist/
+.vscode/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz

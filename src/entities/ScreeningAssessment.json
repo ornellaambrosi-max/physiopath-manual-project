@@ -1,0 +1,215 @@
+{
+  "name": "ScreeningAssessment",
+  "type": "object",
+  "properties": {
+    "patient_id": {
+      "type": "string",
+      "description": "Reference to Patient entity"
+    },
+    "problem_type": {
+      "type": "string",
+      "enum": [
+        "acute",
+        "chronic",
+        "post_operative",
+        "prevention_checkup"
+      ],
+      "description": "Classification of the patient's problem"
+    },
+    "primary_complaint": {
+      "type": "string",
+      "description": "Main reason for seeking care"
+    },
+    "pain_areas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "pathData": {
+            "type": "string",
+            "description": "SVG path data for the marked area"
+          },
+          "view": {
+            "type": "string",
+            "enum": [
+              "front",
+              "back"
+            ]
+          },
+          "sensationType": {
+            "type": "string"
+          },
+          "intensity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "color": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Array of user-marked symptom areas on the body chart."
+    },
+    "pain_narrative": {
+      "type": "string",
+      "description": "User's free text description of their pain and sensations."
+    },
+    "symptom_onset": {
+      "type": "string",
+      "description": "How the symptoms started"
+    },
+    "symptom_duration": {
+      "type": "string",
+      "description": "How long symptoms have been present"
+    },
+    "aggravating_factors": {
+      "type": "string",
+      "description": "Factors that worsen the pain"
+    },
+    "relieving_factors": {
+      "type": "string",
+      "description": "Factors that relieve the pain"
+    },
+    "patient_narrative": {
+      "type": "string",
+      "description": "Patient's story of their condition"
+    },
+    "functional_goals": {
+      "type": "string",
+      "description": "What the patient wants to achieve"
+    },
+    "impact_on_life": {
+      "type": "string",
+      "description": "Impact on work, social, and daily life"
+    },
+    "support_system": {
+      "type": "string",
+      "description": "Support from family, friends, healthcare"
+    },
+    "red_flags": {
+      "type": "object",
+      "properties": {
+        "trauma": {
+          "type": "boolean",
+          "default": false
+        },
+        "weight_loss": {
+          "type": "boolean",
+          "default": false
+        },
+        "fever_sweats": {
+          "type": "boolean",
+          "default": false
+        },
+        "night_pain": {
+          "type": "boolean",
+          "default": false
+        },
+        "bladder_bowel": {
+          "type": "boolean",
+          "default": false
+        },
+        "neuro_symptoms": {
+          "type": "boolean",
+          "default": false
+        },
+        "systemic_disease": {
+          "type": "boolean",
+          "default": false
+        },
+        "severe_pain": {
+          "type": "boolean",
+          "default": false
+        },
+        "details": {
+          "type": "string"
+        }
+      },
+      "description": "Red flag screening results"
+    },
+    "yellow_flags": {
+      "type": "object",
+      "properties": {
+        "fear_avoidance": {
+          "type": "string"
+        },
+        "catastrophizing": {
+          "type": "string"
+        },
+        "low_mood": {
+          "type": "string"
+        },
+        "avoidance_behavior": {
+          "type": "string"
+        }
+      },
+      "description": "Yellow flag screening results"
+    },
+    "psfs_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "activity": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          }
+        }
+      },
+      "description": "Patient-Specific Functional Scale items"
+    },
+    "mini_fabq_score": {
+      "type": "number",
+      "description": "Mini Fear-Avoidance Beliefs Questionnaire score"
+    },
+    "pcs_sf_score": {
+      "type": "number",
+      "description": "Pain Catastrophizing Scale short form score"
+    },
+    "tsk_sf_score": {
+      "type": "number",
+      "description": "Tampa Scale of Kinesiophobia short form score"
+    },
+    "mood_phq_score": {
+      "type": "number",
+      "description": "Mood screening score (based on PHQ-9 items)"
+    },
+    "recommended_pathway": {
+      "type": "string",
+      "enum": [
+        "urgent_medical_assessment",
+        "personalized_care",
+        "standardized_program",
+        "self_management"
+      ],
+      "description": "Recommended care pathway"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "description": "Overall risk assessment"
+    },
+    "assessment_notes": {
+      "type": "string",
+      "description": "Additional assessment notes"
+    }
+  },
+  "required": [
+    "patient_id",
+    "problem_type",
+    "primary_complaint"
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "name": "HealthcareProvider",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the provider or clinic"
+    },
+    "provider_type": {
+      "type": "string",
+      "enum": [
+        "physiotherapy_clinic",
+        "orthopedic_surgeon",
+        "sports_medicine",
+        "pain_specialist",
+        "rheumatologist",
+        "neurologist",
+        "hospital",
+        "diagnostic_center"
+      ],
+      "description": "Type of healthcare provider"
+    },
+    "specializations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Areas of clinical expertise"
+    },
+    "contact_person": {
+      "type": "string",
+      "description": "Primary contact person name"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Contact email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Primary phone number"
+    },
+    "address": {
+      "type": "string",
+      "description": "Street address"
+    },
+    "city": {
+      "type": "string",
+      "description": "City location"
+    },
+    "region": {
+      "type": "string",
+      "description": "Italian region"
+    },
+    "postal_code": {
+      "type": "string",
+      "description": "Postal code"
+    },
+    "website": {
+      "type": "string",
+      "description": "Provider website URL"
+    },
+    "languages_spoken": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Languages offered by the provider"
+    },
+    "accepts_referrals": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the provider accepts patient referrals from PhysioPath"
+    },
+    "partnership_status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "pending",
+        "inactive"
+      ],
+      "default": "pending",
+      "description": "Current partnership status with PhysioPath"
+    },
+    "commission_rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Commission percentage for referrals (if applicable)"
+    },
+    "avg_wait_time": {
+      "type": "string",
+      "description": "Average waiting time for appointments"
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Average patient rating"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of services and approach"
+    },
+    "coordinates": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        }
+      },
+      "description": "Geographic coordinates for map display"
+    },
+    "booking_url": {
+      "type": "string",
+      "description": "Direct link for appointment booking"
+    },
+    "insurance_accepted": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of accepted insurance providers"
+    }
+  },
+  "required": [
+    "name",
+    "provider_type",
+    "city",
+    "region"
+  ]
+}
